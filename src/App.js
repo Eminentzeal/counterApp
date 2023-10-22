@@ -22,9 +22,6 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        {/* <Route path="/" exact component={Counter} />
-        <Route path="/error-boundary" exact component={ErrorBoundaryPage} />
-        <Route component={NotFound} /> */}
         <Route path="/" element={<Counter />} />
         <Route path="/error-boundary" element={<ErrorBoundaryPage />} />
         <Route path="*" element={<NotFound />} />
