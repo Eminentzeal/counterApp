@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+
+import React from 'react';
+// import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Counter from './Counter';
+import ErrorBoundaryPage from './ErrorBoundaryPage';
+
+const NotFound = () => <h2>404 - Not Found</h2>;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/error-boundary">Error Boundary Test</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        {/* <Route path="/" exact component={Counter} />
+        <Route path="/error-boundary" exact component={ErrorBoundaryPage} />
+        <Route component={NotFound} /> */}
+        <Route path="/" element={<Counter />} />
+        <Route path="/error-boundary" element={<ErrorBoundaryPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 
